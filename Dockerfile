@@ -39,7 +39,8 @@ RUN mkdir /opt/go
 RUN cd /opt/go
 RUN wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
 RUN tar xvf go1.4.2.linux-amd64.tar.gz && \ 
-    echo "export=/opt/go/go/bin:$PATH" > ~/.bashrc && source ~/.bashrc
+    echo "export PATH=/opt/go/go/bin:$PATH" > ~/.bashrc && source ~/.bashrc
+RUN echo "export GO_PATH=/usr/work" > ~/.bashrc && source ~/.bashrc
 
 
 # set workdir

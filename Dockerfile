@@ -11,8 +11,7 @@ RUN apt-get build-dep -y php5 && apt-get install -y \
     build-essential \
     g++ \
     libc6-dev \
-    vim \
-    go
+    vim
 
 # PHP 7
 RUN cd /opt && git clone https://github.com/php/php-src.git --depth=1

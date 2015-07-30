@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-MAINTAINER Dave Hulbert, dave1010@gmail.com
-
 RUN apt-get update
 
 RUN apt-get build-dep -y php5 && apt-get install -y \

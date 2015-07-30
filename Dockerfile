@@ -9,7 +9,9 @@ RUN apt-get build-dep -y php5 && apt-get install -y \
     build-essential \
     g++ \
     libc6-dev \
-    vim
+    vim \
+    wget \
+    zsh
 
 # PHP 7
 RUN cd /opt && git clone https://github.com/php/php-src.git --depth=1
@@ -22,6 +24,23 @@ RUN cp /opt/php-src/sapi/cli/php /usr/local/bin/php
 # vim
 RUN git clone https://github.com/xiangshouding/vimrc.git ~/.vim_runtime && \
     sh ~/.vim_runtime/install_awesome_vimrc.sh
+
+# iojs
+
+RUN git clone https://github.com/nodejs/io.js.git && \
+    cd io.js && \ 
+    ./configure && \ 
+    make && \
+    make install \
+    cd -
+
+# go
+RUN mkdir /opt/go
+RUN cd /opt/go
+RUN wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
+RUN tar xvf go1.4.2.linux-amd64.tar.gz && \ 
+    echo "export=/opt/go/go/bin:$PATH" > ~/.bashrc && source ~/.bashrc
+
 
 # set workdir
 RUN mkdir /usr/work

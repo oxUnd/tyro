@@ -25,4 +25,8 @@ RUN cp /opt/php-src/sapi/cli/php /usr/local/bin/php
 RUN git clone https://github.com/xiangshouding/vimrc.git ~/.vim_runtime && \
     sh ~/.vim_runtime/install_awesome_vimrc.sh
 
+# set workdir
+RUN mkdir /usr/work
+WORKDIR /usr/work
+
 CMD ["/bin/bash"]

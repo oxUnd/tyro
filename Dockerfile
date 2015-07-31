@@ -37,11 +37,10 @@ RUN git clone https://github.com/nodejs/io.js.git && \
 RUN mkdir /opt/go
 RUN cd /opt/go
 RUN wget https://storage.googleapis.com/golang/go1.4.2.linux-amd64.tar.gz
-RUN tar xvf go1.4.2.linux-amd64.tar.gz && \ 
-    echo "export PATH=/opt/go/go/bin:$PATH" > ~/.bashrc && source ~/.bashrc
-RUN echo "export GOROOT=/opt/go/go" > ~/.bashrc && source ~/.bashrc
-RUN echo "export GOPATH=/usr/work" > ~/.bashrc && source ~/.bashrc
-
+RUN tar xvf go1.4.2.linux-amd64.tar.gz 
+RUN echo "export PATH=/opt/go/go/bin:$PATH" > ~/.bashrc
+RUN echo "export GOROOT=/opt/go/go" > ~/.bashrc
+RUN echo "export GOPATH=/usr/work" > ~/.bashrc
 
 # set workdir
 RUN mkdir /usr/work

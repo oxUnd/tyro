@@ -31,8 +31,7 @@ RUN git clone https://github.com/nodejs/io.js.git && \
     cd io.js && \ 
     ./configure && \ 
     make && \
-    make install \
-    cd -
+    make install
 
 # go
 RUN mkdir /opt/go
